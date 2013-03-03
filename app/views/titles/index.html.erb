@@ -1,25 +1,23 @@
-<h1>Listing titles</h1>
+<body>
 
-<table>
+<h3>Comic Titles</h3>
+
+<table class="table table-striped table-bordered table-condensed">
   <tr>
     <th>Name</th>
-    <th>Publisher</th>
-    <th></th>
     <th></th>
     <th></th>
   </tr>
-
 <% @titles.each do |title| %>
   <tr>
-    <td><%= title.name %></td>
-    <td><%= title.publisher %></td>
-    <td><%= link_to 'Show', title %></td>
+    <td><%= link_to title.name, title %></td>
     <td><%= link_to 'Edit', edit_title_path(title) %></td>
-    <td><%= link_to 'Destroy', title, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+    <td><%= link_to 'Delete', title, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
-<br />
+<br/>
+<%= link_to 'Click here to add a new Title', new_title_path %>
 
-<%= link_to 'New Title', new_title_path %>
+</body>

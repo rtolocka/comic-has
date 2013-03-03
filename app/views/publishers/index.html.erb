@@ -1,0 +1,23 @@
+<body>
+
+<h3>Comic Publishers</h3>
+
+<table class="table table-striped table-bordered table-condensed">
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+  </tr>
+<% @publishers.each do |publisher| %>
+  <tr>
+    <td><%= link_to publisher.name, publisher %></td>
+    <td><%= link_to 'Edit', edit_publisher_path(publisher) %></td>
+    <td><%= link_to 'Delete', publisher, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br/>
+<%= link_to 'Click here to add a new Publisher', new_publisher_path %>
+
+</body>

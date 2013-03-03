@@ -1,0 +1,3 @@
+{"ts":1362264691588,"silentsave":true,"restoring":false,"patch":[[{"diffs":[[1,"class Publisher < ActiveRecord::Base\n  attr_accessible :name\nend\n"]],"start1":0,"start2":0,"length1":0,"length2":65}]],"length":65}
+{"contributors":[],"silentsave":false,"ts":1362264721509,"patch":[[{"diffs":[[0,"e :name\n"],[1,"  has_many :titles\n"],[0,"end\n"]],"start1":53,"start2":53,"length1":12,"length2":31}]],"length":84,"saved":false}
+{"contributors":[],"silentsave":false,"ts":1362317187019,"patch":[[{"diffs":[[0,"tles\nend"],[-1,"\n"]],"start1":75,"start2":75,"length1":9,"length2":8}]],"length":83,"saved":false}

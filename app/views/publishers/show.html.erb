@@ -1,0 +1,20 @@
+<body>
+
+<h3>Publisher</h3>
+
+<table class="table table-striped table-bordered table-condensed">
+<thead>
+<tr>
+    <th>Name</th>
+    <th></th>
+</tr>
+</thead>
+<tr>
+    <td><%= @publisher.name %></td>
+    <td><%= link_to 'Edit', edit_publisher_path(@publisher) %></td>
+</tr>
+</table>
+
+<%= link_to 'Back to Publishers', publishers_path %>
+
+</body>

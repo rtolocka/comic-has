@@ -1,0 +1,2 @@
+{"ts":1362264992361,"silentsave":true,"restoring":false,"patch":[[{"diffs":[[1,"class CreatePublishers < ActiveRecord::Migration\n  def change\n    create_table :publishers do |t|\n      t.string :name\n\n      t.timestamps\n    end\n  end\nend\n"]],"start1":0,"start2":0,"length1":0,"length2":157}]],"length":157}
+{"contributors":[],"silentsave":false,"ts":1362265034526,"patch":[[{"diffs":[[0,"g :name\n"],[-1,"\n"],[0,"      t."]],"start1":111,"start2":111,"length1":17,"length2":16}]],"length":156,"saved":false}

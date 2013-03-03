@@ -1,25 +1,30 @@
-<%= form_for(@title) do |f| %>
-  <% if @title.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@title.errors.count, "error") %> prohibited this title from being saved:</h2>
+<body>
 
-      <ul>
-      <% @title.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_for(@title) do |f| %>
+
+    <% if @title.errors.any? %>
+        <div id="error_explanation">
+        <h2><%= pluralize(@title.errors.count, "error") %> prohibited this title from being saved:</h2>
+
+        <ul>
+        <% @title.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+        </ul>
+        </div>
+    <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :publisher %><br />
-    <%= f.text_field :publisher %>
+    <%= f.label :publisher %>
+    <%= f.select(:publisher_id, options_from_collection_for_select(Publisher.all, 'id', 'name')) %>
   </div>
-  <div class="actions">
+  <div class="btn">
     <%= f.submit %>
   </div>
 <% end %>
+
+</body>

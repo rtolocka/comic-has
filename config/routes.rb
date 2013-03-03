@@ -1,9 +1,22 @@
 ComicHas::Application.routes.draw do
-   resources :titles do
-      resources :issues
-   end
 
-   get "home/index"
+    # You can have the root of your site routed with "root"
+    # just remember to delete public/index.html.
+    root :to => 'titles#index'
+
+    resources :publishers do
+            resources :titles
+    end
+    
+    resources :titles do
+        resources :issues
+    end
+    
+    resources :titles do
+        resources :issue_ranges
+    end    
+
+    get "home/index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -51,10 +64,6 @@ ComicHas::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 

@@ -1,0 +1,1 @@
+{"ts":1362270753061,"silentsave":true,"restoring":false,"patch":[[{"diffs":[[1,"<h3>Editing title</h3>\n\n<%= render 'form' %>\n\n<%= link_to 'Show', @title %> |\n<%= link_to 'Back', titles_path %>"]],"start1":0,"start2":0,"length1":0,"length2":112}]],"length":112}

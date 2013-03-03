@@ -1,5 +1,5 @@
 class Issue < ActiveRecord::Base
    belongs_to :title
    attr_accessible :number
-   validates :name, :presence => true
+   validates :number, :presence => true
 end

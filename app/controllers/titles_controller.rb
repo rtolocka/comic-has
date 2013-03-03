@@ -21,37 +21,37 @@ class TitlesController < ApplicationController
     end
   end
 
-  # GET /titles/new
-  # GET /titles/new.json
-  def new
-    @title = Title.new
+    # GET /titles/new
+    # GET /titles/new.json
+    def new
+        @title = Title.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render :json => @title }
+        respond_to do |format|
+            format.html # new.html.erb
+            format.json { render :json => @title }
+        end
     end
-  end
 
-  # GET /titles/1/edit
-  def edit
-    @title = Title.find(params[:id])
-  end
-
-  # POST /titles
-  # POST /titles.json
-  def create
-    @title = Title.new(params[:title])
-
-    respond_to do |format|
-      if @title.save
-        format.html { redirect_to @title, :notice => 'Title was successfully created.' }
-        format.json { render :json => @title, :status => :created, :location => @title }
-      else
-        format.html { render :action => "new" }
-        format.json { render :json => @title.errors, :status => :unprocessable_entity }
-      end
+    # GET /titles/1/edit
+    def edit
+        @title = Title.find(params[:id])
     end
-  end
+
+    # POST /titles
+    # POST /titles.json
+    def create
+        @title = Title.new(params[:title])
+
+        respond_to do |format|
+          if @title.save
+            format.html { redirect_to @title, :notice => 'Title was successfully created.' }
+            format.json { render :json => @title, :status => :created, :location => @title }
+          else
+            format.html { render :action => "new" }
+            format.json { render :json => @title.errors, :status => :unprocessable_entity }
+          end
+        end
+    end
 
   # PUT /titles/1
   # PUT /titles/1.json

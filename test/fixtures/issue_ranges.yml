@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  low: 1
+  high: 1
+  title: 
+
+two:
+  low: 1
+  high: 1
+  title: 

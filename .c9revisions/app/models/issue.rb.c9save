@@ -1,0 +1,1 @@
+{"ts":1353598543308,"silentsave":true,"restoring":false,"patch":[[{"diffs":[[1,"class Issue < ActiveRecord::Base\n   belongs_to :title\n   attr_accessible :number\n   validates :name, :presence => true\nend\n"]],"start1":0,"start2":0,"length1":0,"length2":123}]],"length":123}

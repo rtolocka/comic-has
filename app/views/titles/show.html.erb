@@ -1,28 +1,47 @@
-<p id="notice"><%= notice %></p>
+<body>
 
-<p>
-  <b>Name:</b>
-  <%= @title.name %>
-</p>
+<h3>Title</h3>
 
-<p>
-  <b>Publisher:</b>
-  <%= @title.publisher %>
-</p>
+<table class="table table-striped table-bordered table-condensed">
+<thead>
+<tr>
+    <th>Name</th>
+    <th>Publisher</th>
+    <th></th>
+</tr>
+</thead>
+<tr>
+    <td><%= @title.name %></td>
+    <td><%= @title.publisher.name %></td>
+    <td><%= link_to 'Edit', edit_title_path(@title) %></td>
+</tr>
+</table>
 
-<h2>Issues</h2>
+<h3>Issues</h3>
+
+<table class="table table-striped table-bordered table-condensed">
+<thead>
+<tr>
+    <th>Number</th>
+    <th>Artist</th>
+    <th>Writer</th>
+    <th></th>
+</tr>
+<thead>
 <% @title.issues.each do |issue| %>
-  <p>
-   <b>Issue:</b>
-   <%= issue.number %>
-   <%= link_to 'Edit Issue', edit_title_issue_path(issue) %>
-  </p>
+    <tr>
+        <td><%= link_to issue.number, title_issue_path(@title, issue) %></td>
+        <td>Coming soon...</td>
+        <td>Coming soon...</td>
+        <td><%= link_to "Edit", edit_title_issue_path(@title, issue) %></td>
+    </tr>
 <% end %>
+</table>
 
-<h2>Add an issue:</h2>
+<h3>Add an issue:</h3>
 <%= form_for([@title, @title.issues.build]) do |f| %>
   <div class="field">
-    <%= f.label :number %><br />
+    <%= f.label :number %>
     <%= f.text_field :number %>
   </div>
   <div class="actions">
@@ -30,13 +49,21 @@
   </div>
 <% end %>
 
-<h2>Add a bunch of issues:</h2> 
+<h3>Add a bunch of issues at once:</h3> 
+<%= form_for([@title, @title.issue_ranges.build]) do |f| %>
+  <div class="field">
+    <%= f.label :low %>
+    <%= f.text_field :low %>
+  </div>
+  <div class="field">
+    <%= f.label :high %>
+    <%= f.text_field :high %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %> 
 
-<%= form_tag("/title/4/issues", :method => "post") do %>
-   <%= label_tag(:ranges, "Enter your issue range:") %>
-   <%= text_field_tag(:ranges) %>
-   <%= submit_tag("Create") %>
-<% end %>   
+<%= link_to 'Back to Titles', titles_path %>
 
-<%= link_to 'Edit', edit_title_path(@title) %> |
-<%= link_to 'Back', titles_path %>
+</body>

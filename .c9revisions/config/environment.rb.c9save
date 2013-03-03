@@ -1,0 +1,1 @@
+{"ts":1361746128630,"silentsave":true,"restoring":false,"patch":[[{"diffs":[[1,"# Load the rails application\nrequire File.expand_path('../application', __FILE__)\n\n# Initialize the rails application\nComicHas::Application.initialize!\n\n# phony change.\n"]],"start1":0,"start2":0,"length1":0,"length2":169}]],"length":169}

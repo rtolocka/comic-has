@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121017023340) do
+ActiveRecord::Schema.define(:version => 20130302223555) do
+
+  create_table "issue_ranges", :force => true do |t|
+    t.integer  "low"
+    t.integer  "high"
+    t.integer  "title_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "issue_ranges", ["title_id"], :name => "index_issue_ranges_on_title_id"
 
   create_table "issues", :force => true do |t|
     t.integer  "number"
@@ -21,11 +32,17 @@ ActiveRecord::Schema.define(:version => 20121017023340) do
 
   add_index "issues", ["title_id"], :name => "index_issues_on_title_id"
 
-  create_table "titles", :force => true do |t|
+  create_table "publishers", :force => true do |t|
     t.string   "name"
-    t.string   "publisher"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "titles", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "publisher_id"
   end
 
 end

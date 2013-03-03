@@ -1,0 +1,1 @@
+{"ts":1362265037284,"silentsave":true,"restoring":false,"patch":[[{"diffs":[[1,"class CreateIssues < ActiveRecord::Migration\n  def change\n    create_table :issues do |t|\n      t.integer :number\n      t.references :title\n\n      t.timestamps\n    end\n    add_index :issues, :title_id\n  end\nend\n"]],"start1":0,"start2":0,"length1":0,"length2":211}]],"length":211}
