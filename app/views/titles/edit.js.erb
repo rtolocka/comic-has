@@ -1,0 +1,17 @@
+$("#form-container").html("<%= escape_javascript(render 'form')%>");
+$('#searchfield').hide();
+$('#comic-table-header').hide();
+$('#search-button').hide();
+$("#new-remote-link").hide();
+$("#add-button").text('Save').button("refresh");
+$("#form-container").ready(function()
+    {
+        $("#done-button").click(function(e) {
+            e.preventDefault();
+            $("#new-title-form").hide();
+            $('#comic-table-header').show();
+            $('#searchfield').show();
+            $('#search-button').show();
+            $("#new-remote-link").show();
+        });
+    });

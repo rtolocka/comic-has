@@ -1,0 +1,9 @@
+$("#form-container").html("<%= escape_javascript(render 'form')%>");
+$("#form-container").ready(function()
+    {
+        $("#done-button").click(function(e) {
+            e.preventDefault();
+            $("#new-issue-range-form").hide();
+            $("#new-link").show();
+        });
+    });

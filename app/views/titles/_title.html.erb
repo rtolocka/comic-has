@@ -1,0 +1,5 @@
+<tr class="data">
+    <td><%= link_to title.name, title %></td>
+    <td><%= link_to 'Edit', edit_title_path(title), :remote => true %></td>
+    <td><%= link_to 'Delete', title, :method => :delete, :remote => true, :data => { :confirm => 'Are you sure?' } %></td>
+</tr>
