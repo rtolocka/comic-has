@@ -1,4 +1,6 @@
 class Publisher < ActiveRecord::Base
-  attr_accessible :name
-  has_many :titles
+    include ActiveModel::Validations
+    validates_with PublisherValidator
+    attr_accessible :name
+    has_many :titles
 end

@@ -1,11 +1,11 @@
 <body>
 
-<%= form_for(@title) do |f| %>
+<div class="form-inline" id="new-title-form">
+<%= form_for(@title, :remote => true) do |f| %>
 
     <% if @title.errors.any? %>
         <div id="error_explanation">
-        <h2><%= pluralize(@title.errors.count, "error") %> prohibited this title from being saved:</h2>
-
+        <h4>Please resolve <%= pluralize(@title.errors.count, "error") %> to save this item:</h4>
         <ul>
         <% @title.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
@@ -14,17 +14,12 @@
         </div>
     <% end %>
 
-  <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
-  </div>
-  <div class="field">
     <%= f.label :publisher %>
-    <%= f.select(:publisher_id, options_from_collection_for_select(Publisher.all, 'id', 'name')) %>
-  </div>
-  <div class="btn">
-    <%= f.submit %>
-  </div>
+    <%= collection_select(:title, :publisher_id, Publisher.all, :id, :name) %>
+    <button type="submit" id="add-button" class="btn">Add</button>
+    <button type="cancel" id="done-button" class="btn">Done</button>
 <% end %>
-
+</div>
 </body>

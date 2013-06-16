@@ -22,7 +22,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails', '~> 2.1'
+gem 'jquery-rails', '~> 2.2.1'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -38,3 +38,17 @@ gem 'jquery-rails', '~> 2.1'
 
 # To use debugger
 # gem 'ruby-debug'
+
+# See https://github.com/crowdint/rails3-jquery-autocomplete-app
+gem 'rails3-jquery-autocomplete'
+
+# Used for jquery autocomplete.
+gem 'nifty-generators'
+
+gem 'will_paginate', '~> 3.0.0'
+
+gem 'factory_girl_rails', '~> 4.0'
+
+
+
+

@@ -1,3 +1,7 @@
 @import "bootstrap";
 body { padding-top: 20px; padding-left: 20px; }
 @import "bootstrap-responsive";
+.field_with_errors { display: inline; color: #980000; }
+.errors { color: #980000; }
+h4 { display:inline} ;
+.new-link { float:right; margin-right: 5px; } ;

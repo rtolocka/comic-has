@@ -1,24 +1,28 @@
 <body>
 
-<h3>Title</h3>
-
+<%# ROW1 %>
+<div class="row">
+<h4 class="comic-table-header">Title</h4>
+<%= link_to 'Back to Titles', titles_path, :class => "new-link" %>
 <table class="table table-striped table-bordered table-condensed">
 <thead>
 <tr>
     <th>Name</th>
     <th>Publisher</th>
-    <th></th>
 </tr>
 </thead>
 <tr>
-    <td><%= @title.name %></td>
-    <td><%= @title.publisher.name %></td>
-    <td><%= link_to 'Edit', edit_title_path(@title) %></td>
+    <td><%= link_to @title.name, @title %></td>
+    <td><%= link_to @publisher.name, @publisher %></td>
 </tr>
 </table>
+</div>
 
-<h3>Issues</h3>
-
+<%# ROW2 %>
+<div class="row">
+<div id="form-container"></div>
+<h4 class="comic-table-header">Issues</h4>
+<%= link_to 'Click here to add new Issues', new_title_issue_range_path(@title), :remote => true, :class => "new-link" %>
 <table class="table table-striped table-bordered table-condensed">
 <thead>
 <tr>
@@ -27,43 +31,10 @@
     <th>Writer</th>
     <th></th>
 </tr>
-<thead>
-<% @title.issues.each do |issue| %>
-    <tr>
-        <td><%= link_to issue.number, title_issue_path(@title, issue) %></td>
-        <td>Coming soon...</td>
-        <td>Coming soon...</td>
-        <td><%= link_to "Edit", edit_title_issue_path(@title, issue) %></td>
-    </tr>
-<% end %>
+<tbody id="comic-table-body">
+    <% render(@title.issues) || 'There are no issues available.' %>
+</tbody>
 </table>
-
-<h3>Add an issue:</h3>
-<%= form_for([@title, @title.issues.build]) do |f| %>
-  <div class="field">
-    <%= f.label :number %>
-    <%= f.text_field :number %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-
-<h3>Add a bunch of issues at once:</h3> 
-<%= form_for([@title, @title.issue_ranges.build]) do |f| %>
-  <div class="field">
-    <%= f.label :low %>
-    <%= f.text_field :low %>
-  </div>
-  <div class="field">
-    <%= f.label :high %>
-    <%= f.text_field :high %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %> 
-
-<%= link_to 'Back to Titles', titles_path %>
+</div>
 
 </body>

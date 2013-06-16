@@ -1,14 +1,15 @@
 class PublishersController < ApplicationController  
-  # GET /publishers
-  # GET /publishers.json
-  def index
-    @publishers = Publisher.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render :json => @publishers }
+    # GET /publishers
+    # GET /publishers.json
+    def index
+        @publishers = Publisher.all
+
+        respond_to do |format|
+            format.html # index.html.erb
+        format.json { render :json => @publishers }
+        end
     end
-  end
 
   # GET /publishers/1
   # GET /publishers/1.json

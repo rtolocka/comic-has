@@ -5,16 +5,20 @@ ComicHas::Application.routes.draw do
     root :to => 'titles#index'
 
     resources :publishers do
-            resources :titles
+        resources :titles
     end
     
     resources :titles do
+        get 'search', :on => :collection
+        get 'names', :on => :collection
         resources :issues
     end
     
     resources :titles do
         resources :issue_ranges
-    end    
+    end      
+    
+    get 'titles/autocomplete_title_name'
 
     get "home/index"
 

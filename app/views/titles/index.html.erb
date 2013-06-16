@@ -1,23 +1,26 @@
 <body>
 
-<h3>Comic Titles</h3>
+<%= form_tag search_titles_path, :method => :get, :class => 'form-inline', :remote => :true do %>
+    <%= text_field_tag :searchfield, params[:search] %>
+    <button type="submit" class="btn" id="search-button">Search</button>
+<% end %>
 
-<table class="table table-striped table-bordered table-condensed">
+<h4 class="comic-table-header">Comic Books by Title</h4>
+<%= link_to 'Click here to add a new Title', new_title_path, :remote => true, :class => "new-link" %>
+<div id="form-container">
+</div>
+<table id="titles" class="table table-bordered table-condensed">
   <tr>
     <th>Name</th>
     <th></th>
     <th></th>
   </tr>
-<% @titles.each do |title| %>
-  <tr>
-    <td><%= link_to title.name, title %></td>
-    <td><%= link_to 'Edit', edit_title_path(title) %></td>
-    <td><%= link_to 'Delete', title, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+  <tbody id="comic-table-body">
+  <%= render(@titles) || 'There are no titles available.' %>
+  <tbody>
 </table>
 
 <br/>
-<%= link_to 'Click here to add a new Title', new_title_path %>
+<%= render 'hide_new_remote' %>
 
 </body>
