@@ -32,6 +32,8 @@ class TitlesController < BaseController
     def show
         @title = Title.find(params[:id])
         @publisher = Publisher.find(@title.publisher_id)
+        issue_ids = @title.issues.collect{ |issue| issue.id }
+        @issues = Issue.find(issue_ids)
 
         respond_to do |format|
             format.html # show.html.erb
@@ -53,12 +55,11 @@ class TitlesController < BaseController
     # POST /titles
     # POST /titles.json
     def create
-        # request.inspect
         @title = Title.new(params[:title])
         if @title.save
-            @titles = Title.all
+            @titles = Title.order("created_at DESC").all
             flash[:notice] = "You've created a new title!"
-            render 'titles/search.js.erb'
+            render 'results'
         else
             @title.errors.each do |attribute, errors_array|
                 field_errors = attribute.to_s + " " + errors_array
@@ -74,16 +75,12 @@ class TitlesController < BaseController
   # PUT /titles/1.json
   def update
     @title = Title.find(params[:id])
-
-    respond_to do |format|
-      if @title.update_attributes(params[:title])
+    if @title.update_attributes(params[:title])
         @titles = Title.all
         flash[:notice] = "You've updated the title!"
-        render 'titles/search.js.erb'
-      else
-        format.html { render :action => "edit" }
-        format.json { render :json => @title.errors, :status => :unprocessable_entity }
-      end
+        render 'results'
+    else
+        #FIXME
     end
   end
 
@@ -93,5 +90,7 @@ class TitlesController < BaseController
     @title = Title.find(params[:id])
     @title.destroy
     @titles = Title.all
+    flash[:notice] = "You've deleted the title!"
+    render 'results'
   end
 end

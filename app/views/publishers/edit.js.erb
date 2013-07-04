@@ -1,15 +1,11 @@
 $("#form-container").html("<%= escape_javascript(render 'form')%>");
-$('#searchfield').hide();
-$('#search-button').hide();
 $(".new-link").hide();
+$("#add-button").text('Save').button("refresh");
 $("#form-container").ready(function()
     {
         $("#done-button").click(function(e) {
             e.preventDefault();
-            $("#new-title-form").hide();
-            $('#comic-theader').show();
-            $('#searchfield').show();
-            $('#search-button').show();
+            $("#new-publisher-form").hide();
             $(".new-link").show();
         });
     });

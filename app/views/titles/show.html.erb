@@ -1,10 +1,9 @@
 <body>
 
 <%# ROW1 %>
-<div class="row">
 <h4 class="comic-table-header">Title</h4>
-<%= link_to 'Back to Titles', titles_path, :class => "new-link" %>
-<table class="table table-striped table-bordered table-condensed">
+<%= link_to 'Back to Titles', titles_path, :class => "back-link" %>
+<table class="table table-striped table-bordered table-condensed span11">
 <thead>
 <tr>
     <th>Name</th>
@@ -16,14 +15,12 @@
     <td><%= link_to @publisher.name, @publisher %></td>
 </tr>
 </table>
-</div>
 
 <%# ROW2 %>
-<div class="row">
 <div id="form-container"></div>
 <h4 class="comic-table-header">Issues</h4>
 <%= link_to 'Click here to add new Issues', new_title_issue_range_path(@title), :remote => true, :class => "new-link" %>
-<table class="table table-striped table-bordered table-condensed">
+<table class="table table-striped table-bordered table-condensed span11">
 <thead>
 <tr>
     <th>Number</th>
@@ -35,6 +32,5 @@
     <% render(@title.issues) || 'There are no issues available.' %>
 </tbody>
 </table>
-</div>
 
 </body>

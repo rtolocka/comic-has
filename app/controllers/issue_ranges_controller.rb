@@ -12,12 +12,17 @@ class IssueRangesController < ApplicationController
         @issue_range = @title.issue_ranges.create(params[:issue_range])
         create_issues()
         @issues = @title.issues.all
-        redirect_to title_path(@title)
+        render 'results'
     end
       
     def create_issues
         i = @issue_range.low;
-        logger.debug(@issue_range.high)
+        #logger.debug(@issue_range.high)
+        if @issue_range.high.nil?
+            @issue_range.high = @issue_range.low
+        end
+        
+        # create all the issues
         for i in @issue_range.low..@issue_range.high
             @title.issues.create("number" => i)
         end

@@ -1,15 +1,13 @@
 <body>
-
 <%= form_tag search_titles_path, :method => :get, :class => 'form-inline', :remote => :true do %>
     <%= text_field_tag :searchfield, params[:search] %>
     <button type="submit" class="btn" id="search-button">Search</button>
 <% end %>
-
 <h4 class="comic-table-header">Comic Books by Title</h4>
 <%= link_to 'Click here to add a new Title', new_title_path, :remote => true, :class => "new-link" %>
 <div id="form-container">
 </div>
-<table id="titles" class="table table-bordered table-condensed">
+<table id="titles" class="table table-striped table-bordered table-condensed span11">
   <tr>
     <th>Name</th>
     <th></th>

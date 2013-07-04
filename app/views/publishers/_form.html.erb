@@ -1,6 +1,6 @@
 <body>
-
-<%= form_for(@publisher) do |f| %>
+<div class="form-inline" id="new-publisher-form">
+<%= form_for(@publisher, :remote => true) do |f| %>
 
     <% if @publisher.errors.any? %>
         <div id="error_explanation">
@@ -14,9 +14,9 @@
         </div>
     <% end %>
 
-    <%= f.label :name %>
-    <%= f.text_field :name %><br>
-    <button type="submit" class="btn">Add</button>
+    <%= f.text_field :name, :placeholder => "Publisher Name" %>
+    <button type="submit" id="add-button" class="btn">Add</button>
+    <button type="cancel" id="done-button" class="btn">Done</button>
 <% end %>
-
+</div>
 </body>

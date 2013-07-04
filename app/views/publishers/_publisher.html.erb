@@ -1,0 +1,5 @@
+<tr class ="data">
+    <td><%= link_to publisher.name, publisher %></td>
+    <td><%= link_to 'Edit', edit_publisher_path(publisher), :remote => true %></td>
+    <td><%= link_to 'Delete', publisher, :method => :delete, :remote => true, :data => { :confirm => 'Are you sure?' } %></td>
+</tr>

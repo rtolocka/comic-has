@@ -1,5 +1,4 @@
 <body>
-
 <div class="form-inline" id="new-title-form">
 <%= form_for(@title, :remote => true) do |f| %>
 
@@ -14,8 +13,7 @@
         </div>
     <% end %>
 
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :placeholder => "Name" %>
     <%= f.label :publisher %>
     <%= collection_select(:title, :publisher_id, Publisher.all, :id, :name) %>
     <button type="submit" id="add-button" class="btn">Add</button>
