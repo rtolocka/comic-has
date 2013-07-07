@@ -1,8 +1,12 @@
 @import "bootstrap";
-body { padding-top: 20px; padding-left: 20px; }
 @import "bootstrap-responsive";
+$red: #980000;
+$green: #62c462;
+body { padding-top: 20px; padding-left: 20px; }
 .field_with_errors { display: inline; color: #980000; }
-.errors { color: #980000; }
+.errors { color: $red; }
+#flash_alert { color: $red; }
+.notices { color: $green; }
 h4 { display:inline; margin-left: 32px ;} ;
 .new-link { display:inline; float:right; margin-right: 75px; } ;
 .back-link { display:inline; float:right; margin-right: 75px; } ;

@@ -1,0 +1,12 @@
+
+<br>
+To share your collection, please enter the guest's email address in the field below. An account will be created for the user and they will be granted read-only access to your collection.
+<br>
+<br>
+<div class="form-inline">
+<%= form_tag('sharing', :remote=>true) do %>
+<%= label_tag 'Email' %>
+<%= text_field_tag "email" %>
+<%= button_tag "Invite" %>
+<% end %>
+</div>

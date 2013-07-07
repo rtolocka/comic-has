@@ -18,7 +18,11 @@ ComicHas::Application.routes.draw do
     
     resources :titles do
         resources :issue_ranges
-    end      
+    end
+    
+    resources :sharing
+    
+    #get '/sharing', to: 'sharing#share'
     
     get 'titles/autocomplete_title_name'
 
