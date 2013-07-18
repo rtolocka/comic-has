@@ -13,6 +13,7 @@ ComicHas::Application.routes.draw do
     resources :titles do
         get 'search', :on => :collection
         get 'names', :on => :collection
+        get 'mode', :on => :collection
         resources :issues
     end
     
@@ -22,7 +23,10 @@ ComicHas::Application.routes.draw do
     
     resources :sharing
     
-    #get '/sharing', to: 'sharing#share'
+    get '/mode/have', to: 'mode#have'
+    get '/mode/want', to: 'mode#want'
+    
+    #get '/sharing', to: 'sharing#share' #try this later
     
     get 'titles/autocomplete_title_name'
 

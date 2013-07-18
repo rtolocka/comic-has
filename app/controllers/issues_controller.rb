@@ -15,7 +15,7 @@ class IssuesController < ApplicationController
             format.html # show.html.erb
             format.json { render :json => @title }
         end
-    end    
+    end
       
     # PUT /titles/1/issues/2
     def update
