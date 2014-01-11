@@ -18,10 +18,10 @@
         <li>
             <%= link_to 'Logout', destroy_user_session_url, :method=>'delete' %>
         </li>
-        <div class="btn-group">
-            <%=link_to 'Have', mode_titles_path(@title, mode: "have"), :remote => true, :class => "btn", :id => "have-button" %>
-            <%=link_to 'Want', mode_titles_path(@title, mode: "want"), :remote => true, :class => "btn", :id => "want-button" %>
-        </div>
+        <!-- <div class="btn-group"> -->
+            <%# =link_to 'Have', mode_titles_path(@title, mode: "have"), :remote => true, :class => "btn", :id => "have-button" %>
+            <%# =link_to 'Want', mode_titles_path(@title, mode: "want"), :remote => true, :class => "btn", :id => "want-button" %>
+        <!-- </div> -->
         <% end %>
     </ul>
 </div>
